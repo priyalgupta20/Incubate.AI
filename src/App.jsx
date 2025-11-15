@@ -5,6 +5,8 @@ import logo from "./assets/logo.png"; // Updated logo import (Note: Changed back
 import aboutBg from "./assets/about-bg.jpg"; // Background for About section
 import featuresBg from "./assets/features-bg.jpg";
 import footerBg from "./assets/footer-bg.jpg";
+import bgGif from "./assets/bg.mp4"
+import bg2gif from "./assets/bg2.mp4"
 
 export default function App() {
   return (
@@ -14,8 +16,16 @@ export default function App() {
       {/* ---------------------------------- */}
       <div
         className="app-bg"
-        style={{ backgroundImage: `url(${bg})` }}
+         
       >
+         <video
+    className="bg-video"
+    src={bgGif}
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
         <div className="overlay">
           
           <header className="logo-header">
@@ -23,10 +33,19 @@ export default function App() {
               IdeaForge
           </header>
 
-          <div className="content">
-            <h1>“What if your next idea could change the world — but you knew beforehand if it’s worth pursuing?”</h1>
-            <button className="cta-button">Evaluate Your Idea Now</button>
+          <div className="content" >
+            <h1 className="quote-animate">“What if your next idea could change the world — but you knew beforehand if it’s worth pursuing?”</h1>
+            <button  className="cta-button" 
+  onClick={() => {
+    document.getElementById("ideaForm").scrollIntoView({ behavior: "smooth" });
+  }}
+>
+  Evaluate Your Idea Now
+</button>
           </div>
+        
+ 
+
 
         </div>
       </div>
@@ -215,6 +234,11 @@ export default function App() {
           className="form-section"
           style={{ backgroundImage: `url(${aboutBg})` }} // <-- Apply Form Background
       >
+        <section 
+    id="ideaForm"
+    className="form-section"
+    style={{ backgroundImage: `url(${aboutBg})` }}
+></section>
         <div className="form-container">
             <h2>Submit Your Idea for Analysis</h2>
             <p>Ready to validate your next big idea? Tell us about it below!</p>
