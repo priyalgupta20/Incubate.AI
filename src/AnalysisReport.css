@@ -1,6 +1,7 @@
 /* AnalysisReport.css */
 
 /* Define CSS Variables for easier color management and vibrancy */
+
 :root {
     --dark-bg: #1a1a2e;
     --card-bg: #2c2c44;
@@ -363,7 +364,15 @@
     color: var(--accent-pink);
     font-weight: 700;
 }
-
+.chart-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .recharts-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 
 /* --- RESPONSIVENESS --- */
 @media (max-width: 900px) {
