@@ -3,7 +3,7 @@ import './AnalysisReport.css';
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
 
 // Dark mode friendly colors
-const COLORS = ["#4FD1C5", "#63B3ED", "#F6AD55", "#FC8181"]; // teal, blue, orange, red
+const COLORS = ["#4e8ef4ff", "#ee4848ff", "#64e766ff", "#F6AD55"]; // teal, blue, orange, red
 const PRIMARY = "#63B3ED";
 const SECONDARY = "#4FD1C5";
 
@@ -298,7 +298,7 @@ const AnalysisReport = () => {
                         <XAxis dataKey="label" stroke="#CBD5E0" />
                         <YAxis stroke="#CBD5E0" />
                         <Tooltip />
-                        <Bar dataKey="value" fill={PRIMARY} animationDuration={ANIM_TIME} />
+                        <Bar dataKey="value" fill={COLORS[2]} animationDuration={ANIM_TIME} />
                     </BarChart>
                 </div>
 
@@ -309,7 +309,7 @@ const AnalysisReport = () => {
                         <XAxis dataKey="year" stroke="#CBD5E0" />
                         <YAxis stroke="#CBD5E0" />
                         <Tooltip />
-                        <Line type="monotone" dataKey="value" stroke={SECONDARY} strokeWidth={3} animationDuration={ANIM_TIME} />
+                        <Line type="monotone" dataKey="value" stroke="#5D3FD3" strokeWidth={3} animationDuration={ANIM_TIME} />
                     </LineChart>
                     <p className="explanation-line">{market.sizeExplanation}</p>
                 </div>
@@ -321,7 +321,7 @@ const AnalysisReport = () => {
                         <XAxis dataKey="name" stroke="#CBD5E0" />
                         <YAxis stroke="#CBD5E0" />
                         <Tooltip />
-                        <Bar dataKey="score" fill={COLORS[0]} animationDuration={ANIM_TIME} />
+                        <Bar dataKey="score" fill="yellow" animationDuration={ANIM_TIME} />
                     </BarChart>
                     <p><strong>Top Competitors:</strong> {competition.top5.join(', ')}</p>
                     <p className="explanation-line">{competition.explanation}</p>

@@ -5,7 +5,7 @@ import "./App.css";
 import Background from "./Background";
 import about from "./assets/about-us.png";
 import logo from "./assets/logo.png";
-import innovationImg from "./assets/innovation.jpg";
+import innovationImg from "./assets/innovation.png";
 import feasibilityImg from "./assets/feasibility.jpg";
 import marketImg from "./assets/market.jpg";
 import competitionImg from "./assets/competition.jpg";
