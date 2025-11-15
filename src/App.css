@@ -5,6 +5,18 @@ html, body, #root {
   padding: 0;
 }
 
+/* App.css */
+
+/* FIX 8: Apply will-change to the main particle canvas */
+#tsparticles-techno-background canvas {
+    will-change: transform, opacity;
+}
+
+/* FIX 9: Apply will-change to the animating gradient container */
+.techno-bg-container {
+    will-change: background-position;
+}
+
 /* ---------------------------------- */
 /* SECTION 1: HERO STYLES */
 /* ---------------------------------- */
@@ -107,25 +119,26 @@ box-sizing: border-box;
 .content h1 {
   font-size: 50px; 
   font-weight: 300;
-  margin-bottom: 80px; 
+  margin-bottom: 120px; 
   max-width: 900px; /* Restricts text width for readability */
   line-height: 1.2;
 }
 
 .cta-button {
   padding: 14px 34px;
-  background: white;
-  color: black;
+  background: #7e16ba;
+  color: white;
   border-radius: 30px;
   border: none;
   font-size: 20px; 
   font-weight: 500;
   cursor: pointer;
   transition: 0.2s;
+  margin-bottom: 30px; 
 }
 
 .cta-button:hover {
-  background: rgb(230, 230, 230);
+  background: rgb(75, 9, 121);
 }
 
 
@@ -172,10 +185,12 @@ box-sizing: border-box;
 }
 
 .about-text h2 {
-    font-size: 44px;
-    font-weight: 700;
-    margin-bottom: 25px;
-    color: rgb(234, 221, 230); /* Ensure heading is visible */
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  /* If you are using the <GradientGlowText /> component, you don't need this color change. 
+     If you are NOT using the component, use a theme color: */
+  color: var(--accent-pink); 
 }
 
 .about-text p {
@@ -185,12 +200,28 @@ box-sizing: border-box;
 }
 
 .about-visual {
-    flex: 1; 
-    min-width: 300px; 
-    /* Placeholder styling */
-    height: 300px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    /* Set a specific maximum width for the visual area */
+    max-width: 450px; /* Adjust this value (e.g., 300px, 400px, etc.) */
+    
+    /* Center the visual within its flex space if the container is wider */
+    margin: 0 auto; 
+    
+    /* Remove placeholder styling from your previous CSS if it's still there */
+    flex: 1; /* Keep flex property for layout, but max-width will limit size */
+    min-width: 300px;
+    height: auto; 
+    background-color: transparent;
+    border-radius: 0;
+}
+
+/* Ensure the image respects the container's new size */
+.about-visual .about-image {
+    max-width: 100%; /* Keeps the image constrained to the max-width of the container (400px) */
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    border: 4px solid var(--accent-purple); 
+    box-shadow: 0 0 15px rgba(170, 0, 255, 0.6); 
 }
 
 
@@ -327,7 +358,7 @@ box-sizing: border-box;
 .form-section h2 {
     font-size: 40px;
     margin-bottom: 10px;
-    color: #370522; 
+    color: #702963; 
     text-align: center; /* Center the heading inside the form box */
 }
 
@@ -370,7 +401,7 @@ box-sizing: border-box;
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #370522; /* Accent color on focus */
+    border-color: #702963; /* Accent color on focus */
     outline: none;
     box-shadow: 0 0 0 1px #a43576;
 }
@@ -385,7 +416,7 @@ textarea
 }
 .form-submit-button {
     padding: 16px;
-    background: #370522; /* Accent color for the main CTA */
+    background: #622256; /* Accent color for the main CTA */
     color: white;
     border: none;
     border-radius: 8px;
@@ -428,6 +459,7 @@ textarea
     background-size: cover;
     background-attachment: scroll; /* Ensures it scrolls naturally, but if you want it FIXED use 'fixed' */
     min-height: 300px; /* <-- Added a minimal height for visual stability if content is short */
+    margin-top: 50px;
 }
 
 /* Dark Overlay for Footer */
@@ -438,7 +470,7 @@ textarea
     left: 0;
     width: 100%;
     height: 100%; /* <-- This is key, ensuring the overlay covers the whole footer element */
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
 }
 
@@ -450,6 +482,7 @@ textarea
     gap: 40px;
     position: relative; /* Ensure content is above the overlay */
     z-index: 2;
+    margin-top: 90px;
 }
 
 .footer-col {
@@ -526,8 +559,9 @@ textarea
     }
     
     .about-container {
-        flex-direction: column; 
+        flex-direction: column;
         gap: 40px;
+        text-align: center; /* Center text/visual when stacked */
     }
     
     .feature-item, .feature-reverse {
@@ -541,6 +575,16 @@ textarea
 
     .about-text h2 {
         font-size: 36px;
+        text-align: center;
+    }
+
+    .about-text {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .about-visual {
+        max-width: 450px;
     }
     
     .features-container h2 {

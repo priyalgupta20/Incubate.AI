@@ -3,7 +3,7 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./App.css";
 import Background from "./Background";
-
+import about from "./assets/about-us.png";
 import logo from "./assets/logo.png";
 
 
@@ -19,7 +19,7 @@ const FadeUp = ({ children, delay = 0 }) => (
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay }}
-    viewport={{ once: false, amount: 0.5 }} 
+    viewport={{ once: true, amount: 0.5 }} 
   >
     {children}
   </motion.div>
@@ -141,7 +141,7 @@ function HomePage() {
 
           <SlideRight>
             <div className="about-visual">
-              <p>[Place your About Us image or visual here]</p>
+              <img src={about} alt="Abstract illustration of an idea being validated by AI" className="about-image" />
             </div>
           </SlideRight>
         </div>
@@ -318,7 +318,7 @@ function HomePage() {
             >
               <div className="form-group">
                 <label htmlFor="ideaTitle">Idea Title *</label>
-                <input type="text" required placeholder="AI-Powered Wellness Coach" />
+                <input type="text" required placeholder="eg: AI-Powered Wellness Coach" />
               </div>
 
               <div className="form-group">

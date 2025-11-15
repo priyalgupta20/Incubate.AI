@@ -17,7 +17,7 @@ const Background = () => {
         },
         background: {
             color: {
-                value: "transparent", 
+                value: "#120033", 
             },
         },
         detectRetina: true,
@@ -25,7 +25,7 @@ const Background = () => {
         // --- Particle (Node) Settings ---
         particles: {
             number: {
-                value: 100, 
+                value: 80, 
                 density: { enable: true, value_area: 800 }
             },
             color: {
