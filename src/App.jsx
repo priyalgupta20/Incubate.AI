@@ -5,10 +5,19 @@ import "./App.css";
 import Background from "./Background";
 import about from "./assets/about-us.png";
 import logo from "./assets/logo.png";
-
-
+import innovationImg from "./assets/innovation.jpg";
+import feasibilityImg from "./assets/feasibility.jpg";
+import marketImg from "./assets/market.jpg";
+import competitionImg from "./assets/competition.jpg";
+import swotImg from "./assets/swot.jpg";
+import feedbackImg from "./assets/feedback.jpg";
 import AnalysisReport from "./AnalysisReport";
-
+import rocketImg from "./assets/rocket.jpg";
+import rocket1Img from "./assets/rocket1.jpg";
+import monetisationImg from "./assets/monetisation.jpg";
+import monetisation1Img from "./assets/monetisation11.jpg";
+import feature7 from "./assets/feature7.jpg";
+import fundingImg from "./assets/funding.jpg";
 /* --------------------------------------------- */
 /* ANIMATION COMPONENTS */
 /* --------------------------------------------- */
@@ -155,17 +164,25 @@ function HomePage() {
           <h2>Features</h2>
 
           {/* (01) */}
-          <div className="feature-item">
-            <SlideLeft>
-              <div className="feature-text">
-                <h3>01. Innovation Score</h3>
-                <p>How unique and original the idea is vs. existing solutions.</p>
-              </div>
-            </SlideLeft>
-            <SlideRight>
-              <div className="feature-visual">[Visual for Innovation Score]</div>
-            </SlideRight>
-          </div>
+<div className="feature-item">
+  <SlideLeft>
+    <div className="feature-text">
+      <h3>01. Innovation Score</h3>
+      <p>How unique and original the idea is vs. existing solutions.</p>
+    </div>
+  </SlideLeft>
+
+  <SlideRight>
+    <div className="feature-visual">
+      <img 
+        src={innovationImg} 
+        alt="Innovation Score" 
+        style={{ width: "200px", height: "250px", borderRadius: "12px", marginRight: "100px" ,  transform: "translateX(-50px)"  }} 
+      />
+    </div>
+  </SlideRight>
+</div>
+
 
           {/* (02) */}
           <div className="feature-item feature-reverse">
@@ -177,7 +194,19 @@ function HomePage() {
             </SlideRight>
 
             <SlideLeft>
-              <div className="feature-visual">[Visual for Feasibility Analysis]</div>
+            <div className="feature-visual">
+  <img
+    src={feasibilityImg}
+    alt="Feasibility Analysis"
+    style={{
+      width: "350px",
+      height: "auto",
+      borderRadius: "12px"
+   
+    }}
+  />
+</div>
+
             </SlideLeft>
           </div>
 
@@ -191,7 +220,18 @@ function HomePage() {
             </SlideLeft>
 
             <SlideRight>
-              <div className="feature-visual">[Visual for Market Size]</div>
+            <div className="feature-visual">
+  <img
+    src={marketImg}
+    alt="Market Size"
+    style={{
+      width: "350px",
+      height: "auto",
+      borderRadius: "12px",
+      transform: "translateX(-40px)"   // same left shift as others
+    }}
+  />
+</div>
             </SlideRight>
           </div>
 
@@ -205,7 +245,17 @@ function HomePage() {
             </SlideRight>
 
             <SlideLeft>
-              <div className="feature-visual">[Visual for Competition Analysis]</div>
+            <div className="feature-visual">
+      <img
+        src={competitionImg}
+        alt="Competitive Advantage"
+        style={{
+          width: "300px",
+          height: "auto",
+          borderRadius: "12px"
+        }}
+      />
+    </div>
             </SlideLeft>
           </div>
 
@@ -219,7 +269,18 @@ function HomePage() {
             </SlideLeft>
 
             <SlideRight>
-              <div className="feature-visual">[Visual for SWOT Report]</div>
+            <div className="feature-visual">
+      <img
+        src={swotImg}
+        alt="swotAnalysis"
+        style={{
+          width: "320px",
+          height: "auto",
+          borderRadius: "12px",
+          transform: "translateX(-40px)"
+        }}
+      />
+    </div>
             </SlideRight>
           </div>
 
@@ -233,7 +294,18 @@ function HomePage() {
             </SlideRight>
 
             <SlideLeft>
-              <div className="feature-visual">[Visual for AI Feedback]</div>
+            <div className="feature-visual">
+      <img
+        src={feedbackImg}
+        alt="swotAnalysis"
+        style={{
+          width: "250px",
+          height: "auto",
+          borderRadius: "12px"
+       
+        }}
+      />
+    </div>
             </SlideLeft>
           </div>
 
@@ -247,7 +319,18 @@ function HomePage() {
             </SlideRight>
 
             <SlideRight>
-              <div className="feature-visual">[Visual for Audience Profile]</div>
+            <div className="feature-visual">
+      <img
+        src={feature7}
+        alt=".."
+        style={{
+          width: "250px",
+          height: "auto",
+          borderRadius: "12px",
+        transform: "translateX(-40px)"
+        }}
+      />
+    </div>
             </SlideRight>
           </div>
 
@@ -261,7 +344,18 @@ function HomePage() {
             </SlideRight>
 
             <SlideLeft>
-              <div className="feature-visual">[Visual for Impact Potential]</div>
+            <div className="feature-visual">
+      <img
+        src={rocket1Img}
+        alt="swotAnalysis"
+        style={{
+          width: "300px",
+          height: "auto",
+          borderRadius: "12px"
+       
+        }}
+      />
+    </div>
             </SlideLeft>
           </div>
 
@@ -275,7 +369,19 @@ function HomePage() {
             </SlideLeft>
 
             <SlideRight>
-              <div className="feature-visual">[Visual for Monetization Plan]</div>
+            <div className="feature-visual">
+      <img
+        src={monetisation1Img}
+        alt="monestisation"
+        style={{
+          width: "300px",
+          height: "auto",
+          borderRadius: "12px",
+transform: "translateX(-40px)"
+       
+        }}
+      />
+    </div>
             </SlideRight>
           </div>
 
@@ -289,7 +395,18 @@ function HomePage() {
             </SlideRight>
 
             <SlideLeft>
-              <div className="feature-visual">[Visual for Funding & Cost]</div>
+            <div className="feature-visual">
+      <img
+        src={fundingImg}
+        alt=".."
+        style={{
+          width: "300px",
+          height: "auto",
+          borderRadius: "12px",
+        transform: "translateX(-40px)"
+        }}
+      />
+    </div>
             </SlideLeft>
           </div>
         </div>

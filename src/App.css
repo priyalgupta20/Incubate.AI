@@ -303,14 +303,15 @@ box-sizing: border-box;
 .feature-visual {
     flex: 1; 
     min-width: 200px; /* <-- SMALLER MIN WIDTH */
-    height: 200px; /* <-- SMALLER HEIGHT */
-    background-color: rgba(255, 255, 255, 0.1); /* Lighter placeholder on dark background */
+    height: auto; /* <-- SMALLER HEIGHT */
+    background-color: /*rgba(255, 255, 255, 0.1);*/ none; /* Lighter placeholder on dark background */
     border-radius: 8px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; 
     align-items: center;
     font-weight: 600;
     color: #e0e0e0;
+    padding-left: 100px;
 }
 
 /* ---------------------------------- */
@@ -358,7 +359,7 @@ box-sizing: border-box;
 .form-section h2 {
     font-size: 40px;
     margin-bottom: 10px;
-    color: #702963; 
+    color: #622256; 
     text-align: center; /* Center the heading inside the form box */
 }
 
