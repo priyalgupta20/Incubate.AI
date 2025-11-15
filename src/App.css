@@ -10,38 +10,76 @@ html, body, #root {
 /* ---------------------------------- */
 
 /* Background container */
+
+
 .app-bg {
-  min-height: 100vh; /* Ensures the first section is AT LEAST full screen height, but allows scrolling */
+  min-height: 100vh; 
   width: 100%;
   position: relative; 
+  background-color: transparent !important; 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1; /* keeps video behind everything */
-  
-}
-/* Transparent overlay */
-.overlay {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; 
-  width: 100%;
-  justify-content: space-between; /* Helps push content and header to edges */
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(4px);
-  padding: 30px 60px;
-  color: white;
-  box-sizing: border-box;
+/* ---------------------------------- */
+/* GRADIENT GLOW TEXT ANIMATION */
+/* ---------------------------------- */
+
+
+.gradient-glow-text {
+    /* 1. Gradient Background Definition */
+    /* Using light, vibrant colors */
+    background: linear-gradient(
+        45deg,
+        #b50de8, /* Crimson Red (Bright) */
+        #9932cc, /* Dark Orchid/Violet (Purplish) */
+        #ff1493, /* Deep Pink/Ruby Red (Saturated) */
+        #b50de8  /* Crimson Red (Loop start) */
+    );
+    
+    background-size: 400% 100%; 
+    
+    /* 2. Text Transparency (The Magic!) */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; 
+    
+    /* 3. Gradient Animation (No change to timing) */
+    animation: textGradientShift 4s ease infinite alternate; 
+
+    /* 4. Subtle Glow Effect (Matching the light colors) */
+    text-shadow: 
+       
+        0 0 15px rgba(110, 10, 57, 0.5); /* Orchid/Violet Glow */
+
+    /* Basic text styling (adjust as needed) */
+    font-size: 60px;
+    font-weight: 700;
 }
 
+/* 5. Keyframe Definition for Gradient Shift (No change) */
+@keyframes textGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+/* ---------------------------------- */
+/* Transparent overlay */
+/* App.css me .overlay class ko aise update karein */
+.overlay {
+display:flex;
+flex-direction: column;
+min-height: 100vh; 
+width: 100%;
+justify-content: space-between;
+background: rgba(0, 0, 0, 0.25); 
+padding: 30px 60px;
+color: white;
+box-sizing: border-box;
+}
 /* NEW Logo Header Style */
 .logo-header {
   display: flex;
@@ -98,7 +136,7 @@ html, body, #root {
 .about-section {
     position: relative;
     padding: 80px 60px;
-    color: rgb(0, 0, 0); /* Text color for readability over dark background */
+    color: white;/* Text color for readability over dark background */
     z-index: 1;
     
     /* Background Image Properties */
@@ -115,7 +153,7 @@ html, body, #root {
     width: 100%;
     height: 100%;
     /* Reduced opacity for a lighter background appearance */
-    background-color: rgba(0, 0, 0, 0.1); 
+    
     z-index: -1; 
 }
 
@@ -137,7 +175,7 @@ html, body, #root {
     font-size: 44px;
     font-weight: 700;
     margin-bottom: 25px;
-    color: rgb(59, 8, 43); /* Ensure heading is visible */
+    color: rgb(234, 221, 230); /* Ensure heading is visible */
 }
 
 .about-text p {
@@ -180,7 +218,7 @@ html, body, #root {
     width: 100%;
     height: 100%;
     /* Dark semi-transparent overlay to ensure text contrast */
-    background-color: rgba(0, 0, 0, 0.5); 
+    /* background-color: rgba(0, 0, 0, 0.5);  */
     z-index: -1;
 }
 
@@ -223,7 +261,7 @@ html, body, #root {
     font-size: 28px; /* <-- SMALLER HEADING */
     font-weight: 700;
     margin-bottom: 10px;
-    color: #00bcd4;
+    color: #C542F5;
 }
 
 .feature-text p {
@@ -332,14 +370,22 @@ html, body, #root {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #00bcd4; /* Accent color on focus */
+    border-color: #370522; /* Accent color on focus */
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+    box-shadow: 0 0 0 1px #a43576;
 }
-
+input {
+     background-color: rgba(0, 0, 0, 0.1);
+     color:black;
+}
+textarea
+{
+    background-color: rgba(0, 0, 0, 0.1);
+    color:black;   
+}
 .form-submit-button {
     padding: 16px;
-    background: #00bcd4; /* Accent color for the main CTA */
+    background: #370522; /* Accent color for the main CTA */
     color: white;
     border: none;
     border-radius: 8px;
@@ -351,7 +397,7 @@ html, body, #root {
 }
 
 .form-submit-button:hover {
-    background: #00a0b8; 
+    background: #370522; 
 }
 
 /* Responsive adjustment for padding */
@@ -373,7 +419,7 @@ html, body, #root {
 .app-footer {
     position: relative;
     padding: 60px 60px;
-    color: white; 
+    color: #C542F5; 
     z-index: 1;
 
     /* Background Image Properties */
@@ -421,7 +467,7 @@ html, body, #root {
     font-size: 20px;
     margin-bottom: 20px;
     font-weight: 600;
-    color: #00bcd4; /* Accent color for headings */
+    color: #C542F5; /* Accent color for headings */
 }
 
 .footer-col p, .footer-col li {
@@ -442,7 +488,7 @@ html, body, #root {
 }
 
 .footer-col a:hover {
-    color: #00bcd4;
+    color: #C542F5;
 }
 
 /* Responsive adjustment for footer (stacks vertically on small screens) */

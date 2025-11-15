@@ -2,14 +2,10 @@ import React from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./App.css";
+import Background from "./Background";
 
-import bg from "./assets/bg.png";
 import logo from "./assets/logo.png";
-import aboutBg from "./assets/about-bg.jpg";
-import featuresBg from "./assets/features-bg.jpg";
-import footerBg from "./assets/footer-bg.jpg";
-import bgGif from "./assets/bg.mp4";
-import bg2gif from "./assets/bg2.mp4";
+
 
 import AnalysisReport from "./AnalysisReport";
 
@@ -17,23 +13,36 @@ import AnalysisReport from "./AnalysisReport";
 /* ANIMATION COMPONENTS */
 /* --------------------------------------------- */
 
+
 const FadeUp = ({ children, delay = 0 }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay }}
-    viewport={{ once: true }}
+    viewport={{ once: false, amount: 0.5 }} 
   >
     {children}
   </motion.div>
 );
-
+const GradientGlowText = ({ text, delay = 0 }) => {
+    return (
+        <motion.h1
+            className="gradient-glow-text" // Apply the special CSS class here
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay }}
+        >
+            {text}
+        </motion.h1>
+    );
+};
 const PopIn = ({ children, delay = 0 }) => (
   <motion.div
     initial={{ scale: 0.85, opacity: 0 }}
     whileInView={{ scale: 1, opacity: 1 }}
     transition={{ duration: 0.5, delay }}
-    viewport={{ once: true }}
+    viewport={{ once: false }}
   >
     {children}
   </motion.div>
@@ -44,7 +53,7 @@ const SlideLeft = ({ children, delay = 0 }) => (
     initial={{ opacity: 0, x: -60 }}
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.6, delay }}
-    viewport={{ once: true }}
+    viewport={{ once: false }}
   >
     {children}
   </motion.div>
@@ -55,7 +64,7 @@ const SlideRight = ({ children, delay = 0 }) => (
     initial={{ opacity: 0, x: 60 }}
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.6, delay }}
-    viewport={{ once: true }}
+    viewport={{ once: false }}
   >
     {children}
   </motion.div>
@@ -81,8 +90,9 @@ function HomePage() {
       {/* ---------------------------------- */}
       {/* SECTION 1: HERO */}
       {/* ---------------------------------- */}
+      <Background/>
       <div className="app-bg">
-        <video className="bg-video" src={bgGif} autoPlay loop muted playsInline />
+        {/* <video className="bg-video" src={bgGif} autoPlay loop muted playsInline /> */}
 
         <div className="overlay">
           <header className="logo-header">
@@ -114,11 +124,12 @@ function HomePage() {
       {/* ---------------------------------- */}
       {/* ABOUT SECTION */}
       {/* ---------------------------------- */}
-      <section className="about-section" style={{ backgroundImage: `url(${aboutBg})` }}>
+      <section className="about-section" >
         <div className="about-container">
           <SlideLeft>
             <div className="about-text">
-              <h2>About Incubator AI</h2>
+
+              <h2><GradientGlowText text="About Incubator AI" delay={0.2} /></h2>
               <p>
                 Incubator AI is a platform dedicated to transforming raw inspiration into viable ventures. We believe that every groundbreaking idea deserves a clear path to execution. Our service provides advanced validation and strategic insights, helping innovators skip the guesswork and focus on what truly matters: **building a better future.**
               </p>
@@ -139,9 +150,9 @@ function HomePage() {
       {/* ---------------------------------- */}
       {/* FEATURES SECTION */}
       {/* ---------------------------------- */}
-      <section className="features-section" style={{ backgroundImage: `url(${featuresBg})` }}>
+      <section className="features-section" >
         <div className="features-container">
-          <h2>Analysis Output Features</h2>
+          <h2>Features</h2>
 
           {/* (01) */}
           <div className="feature-item">
@@ -228,12 +239,12 @@ function HomePage() {
 
           {/* (07) */}
           <div className="feature-item">
-            <SlideLeft>
+            <SlideRight>
               <div className="feature-text">
                 <h3>07. Target Audience</h3>
                 <p>Customer personas, pain points, behavior patterns, and motivation.</p>
               </div>
-            </SlideLeft>
+            </SlideRight>
 
             <SlideRight>
               <div className="feature-visual">[Visual for Audience Profile]</div>
@@ -287,7 +298,7 @@ function HomePage() {
       {/* ---------------------------------- */}
       {/* IDEA FORM SECTION */}
       {/* ---------------------------------- */}
-      <section id="ideaForm" className="form-section" style={{ backgroundImage: `url(${aboutBg})` }}>
+      <section id="ideaForm" className="form-section" >
         <div className="form-container">
           <FadeUp delay={0.2}>
             <h2>Submit Your Idea for Analysis</h2>
@@ -332,7 +343,7 @@ function HomePage() {
       {/* FOOTER */}
       {/* ---------------------------------- */}
       <FadeUp>
-        <footer className="app-footer" style={{ backgroundImage: `url(${footerBg})` }}>
+        <footer className="app-footer" >
           <div className="footer-overlay">
             <div className="footer-container">
               <div className="footer-col brand-info">

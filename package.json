@@ -14,7 +14,9 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.6",
-    "recharts": "^3.4.1"
+    "react-tsparticles": "^2.12.2",
+    "recharts": "^3.4.1",
+    "tsparticles-slim": "^2.12.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -29,5 +31,18 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17",
     "vite": "^7.2.2"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyalgupta20/Incubate.AI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyalgupta20/Incubate.AI/issues"
+  },
+  "homepage": "https://github.com/priyalgupta20/Incubate.AI#readme"
 }
