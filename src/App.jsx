@@ -102,7 +102,7 @@ function HomePage() {
   
     try {
       // STEP 2 → Make API call from HomePage
-      const res = await fetch("http://localhost:5000/api/analyze", {
+      const res = await fetch("https://incubateaibackend.onrender.com/api/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idea }),
