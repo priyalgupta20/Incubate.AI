@@ -95,16 +95,28 @@ export default function App() {
 function HomePage() {
   const [idea, setIdea] = useState("");
   const navigate = useNavigate();
+ 
   const handleSubmit = async () => {
-    const res = await fetch("http://localhost:5000/api/analyze", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({"idea":idea})
-    });
-
-    const api = await res.json();
-    navigate("/analysis", { state: {api }, });
+    // STEP 1 → Show loader instantly
+    navigate("/analysis", { state: { loading: true } });
+  
+    try {
+      // STEP 2 → Make API call from HomePage
+      const res = await fetch("http://localhost:5000/api/analyze", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ idea }),
+      });
+  
+      const api = await res.json();
+  
+      // STEP 3 → Replace loader with final data
+      navigate("/analysis", { state: { api } });
+    } catch (err) {
+      console.error(err);
+    }
   };
+  
   return (
     <>
       {/* ---------------------------------- */}
@@ -441,7 +453,7 @@ transform: "translateX(-40px)"
               className="idea-form"
               onSubmit={(e) => {
                 e.preventDefault();
-                navigate("/analysis");
+                handleSubmit();
               }}
             >
               <div className="form-group">

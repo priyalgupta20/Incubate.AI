@@ -25,7 +25,7 @@ const Background = () => {
         // --- Particle (Node) Settings ---
         particles: {
             number: {
-                value: 80, 
+                value: 60, 
                 density: { enable: true, value_area: 800 }
             },
             color: {
