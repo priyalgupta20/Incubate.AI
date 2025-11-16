@@ -157,16 +157,16 @@ function HomePage() {
       {/* ABOUT SECTION */}
       {/* ---------------------------------- */}
       <section className="about-section" >
-        <div className="about-container">
+        <div className="about-container" id="about">
           <SlideLeft>
             <div className="about-text">
 
               <h2><GradientGlowText text="About Incubator AI" delay={0.2} /></h2>
               <p>
-                Incubator AI is a platform dedicated to transforming raw inspiration into viable ventures. We believe that every groundbreaking idea deserves a clear path to execution. Our service provides advanced validation and strategic insights, helping innovators skip the guesswork and focus on what truly matters: **building a better future.**
+                Incubator AI is the platform that transforms raw inspiration into viable ventures. We believe that every groundbreaking idea deserves a clear path to execution. Our service provides advanced validation and strategic insights, helping innovators skip the guesswork and focus on what truly matters: *execution.*
               </p>
               <p>
-                We bring together data science, market analysis, and expert mentorship to stress-test your concepts, ensuring you invest your time and resources into ideas with proven potential. Join us to forge your next big idea with confidence.
+                Our AI leverages data science, deep market analysis, and strategic insights to stress-test your concepts, ensuring you invest your time and resources into ideas with proven potential. Join us to forge your next big idea with confidence.
               </p>
             </div>
           </SlideLeft>
@@ -183,7 +183,7 @@ function HomePage() {
       {/* FEATURES SECTION */}
       {/* ---------------------------------- */}
       <section className="features-section" >
-        <div className="features-container">
+        <div className="features-container" id="features">
           <h2>Features</h2>
 
           {/* (01) */}
@@ -212,7 +212,7 @@ function HomePage() {
             <SlideRight>
               <div className="feature-text">
                 <h3>02. Feasibility Analysis</h3>
-                <p>Technical + operational difficulty, team requirements, timeline realism.</p>
+                <p>Technical + operational + financial difficulty.</p>
               </div>
             </SlideRight>
 
@@ -312,7 +312,7 @@ function HomePage() {
             <SlideRight>
               <div className="feature-text">
                 <h3>06. AI Feedback Summary</h3>
-                <p>3–5 actionable suggestions to improve or pivot the idea.</p>
+                <p>Actionable suggestions to improve or pivot the idea.</p>
               </div>
             </SlideRight>
 
@@ -486,11 +486,26 @@ transform: "translateX(-40px)"
         <footer className="app-footer" >
           <div className="footer-overlay">
             <div className="footer-container">
+              
+              {/* Column 1: Brand, Copyright, and Creators (Updated) */}
               <div className="footer-col brand-info">
                 <h3>Incubator AI</h3>
+                
+                {/* --- NEW CREATORS SECTION --- */}
+                <div className="creators-section">
+                  <p className="created-by">Created by:</p>
+                  <ul>
+                    <li><a href="https://www.linkedin.com/in/lavanaya-khosla/" target="_blank" rel="noopener noreferrer">Lavanaya Khosla</a></li>
+                    <li><a href="https://www.linkedin.com/in/manasvi-ahuja-06692b28a/" target="_blank" rel="noopener noreferrer">Manasvi</a></li>
+                    <li><a href="https://www.linkedin.com/in/priyal-gupta-1039b5287/" target="_blank" rel="noopener noreferrer">Priyal Gupta</a></li>
+                  </ul>
+                </div>
+                {/* --- END NEW SECTION --- */}
+
                 <p>© {new Date().getFullYear()} Incubator AI. All rights reserved.</p>
               </div>
 
+              {/* Column 2: Company */}
               <div className="footer-col">
                 <h4>Company</h4>
                 <ul>
@@ -499,6 +514,7 @@ transform: "translateX(-40px)"
                 </ul>
               </div>
 
+              {/* Column 3: Legal */}
               <div className="footer-col">
                 <h4>Legal</h4>
                 <ul>
@@ -507,9 +523,10 @@ transform: "translateX(-40px)"
                 </ul>
               </div>
 
+              {/* Column 4: Contact/Social */}
               <div className="footer-col contact-info">
                 <h4>Get in Touch</h4>
-                <p>info@incubatorai.com</p>
+                <p>incubatelmp@gmail.com</p>
               </div>
             </div>
           </div>

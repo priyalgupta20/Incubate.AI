@@ -19,8 +19,11 @@ function convertApiToUi(api) {
   return {
     title: api.idea_title,
     category: api.idea_category,
-    overallRating: api.overall_rating.score,
-    innovationScore: api.innovation_score.score,
+    overall:{
+      overallRating:api.overall_rating.score,
+      overallexpln:api.overall_rating.summary_justification},
+
+    innovation: {innovationScore: api.innovation_score.score, innovationScore_Explanation: api.innovation_score.explanation},
 
     feasibility: {
       technical: api.feasibility_analysis.technical_difficulty_level,
@@ -125,7 +128,7 @@ const AnalysisReport = () => {
   const audienceData = reportData.audience.breakdown;
 
   const {
-    title, category, overallRating, innovationScore,
+    title, category, overall, innovation,
     feasibility, market, competition, audience,
     swot, aiFeedback, impact,
     monetization, funding
@@ -152,18 +155,18 @@ const AnalysisReport = () => {
             <div className="slider-score-content">
               <h3>Innovation Score</h3>
               <div className="slider-container">
-                <div className="slider-fill" style={{ background: PRIMARY, width: `${innovationScore * 10}%` }}></div>
-                <div className="slider-thumb" style={{ background: SECONDARY, left: `${innovationScore * 10}%` }}>
-                  {innovationScore}/10
+                <div className="slider-fill" style={{ background: PRIMARY, width: `${innovation.innovationScore * 10}%` }}></div>
+                <div className="slider-thumb" style={{ background: SECONDARY, left: `${innovation.innovationScore * 10}%` }}>
+                  {innovation.innovationScore}/10
                 </div>
               </div>
-              <p className="slider-desc">How unique and original the idea is vs. existing solutions.</p>
+              <p className="slider-desc">{innovation.innovationScore_Explanation}</p>
             </div>
           </div>
 
           <div className="overall-rating-center fade-zoom-in">
             <div className="center-rating-circle">
-              <span className="rating-value">{overallRating}</span>
+              <span className="rating-value">{overall.overallRating}</span>
               <span className="rating-max">/100</span>
             </div>
             <p className="rating-label">Overall Rating</p>
@@ -178,7 +181,7 @@ const AnalysisReport = () => {
                   {impact.potentialScore}/10
                 </div>
               </div>
-              <p className="slider-desc">{impact.explanation.substring(0, 75)}...</p>
+              <p className="slider-desc">{impact.explanation}</p>
             </div>
           </div>
 
