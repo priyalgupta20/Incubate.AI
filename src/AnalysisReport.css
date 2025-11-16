@@ -4,10 +4,10 @@
 
 :root {
     --dark-bg: #1a1a2e;
-    --card-bg: #2c2c44;
-    --accent-cyan: #00bcd4;
-    --accent-pink: #ff416c;
-    --accent-purple:rgb(120, 34, 185);
+    --card-bg: #2A2A40; /* UPDATED: Slightly darker for better card contrast */
+    --accent-cyan: #00D4FF; /* UPDATED: Brighter Cyan for pop */
+    --accent-pink: #E91E63; /* UPDATED: Cooler Magenta for harmony */
+    --accent-purple: rgb(120, 34, 185);
     --accent-blue: #3f51b5;
     --text-light: #e0e0e0;
     --text-subtle: #999;
@@ -22,15 +22,16 @@
 
 /* --- KEYFRAMES AND ANIMATIONS --- */
 
+/* Note: Updated color codes in dataPulse to use new cyan/magenta */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes dataPulse {
-    0% { box-shadow: 0 0 5px rgba(0, 188, 212, 0.4); }
-    50% { box-shadow: 0 0 15px rgba(0, 188, 212, 0.7); }
-    100% { box-shadow: 0 0 5px rgba(0, 188, 212, 0.4); }
+    0% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.4); } 
+    50% { box-shadow: 0 0 15px rgba(0, 212, 255, 0.7); } 
+    100% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.4); } 
 }
 
 @keyframes highlightMove {
@@ -41,7 +42,15 @@
 /* --- GENERAL REPORT STYLING (Dark Theme) --- */
 .report-page-container {
     padding: 40px;
-    background-color: var(--dark-bg); 
+    
+    /* --- NEW: Radial Gradient to mimic network glow --- */
+    background: radial-gradient(
+        circle at center, /* Starts from the exact center */
+        #3C2263 0%,      /* Faint, slightly bright purple core */
+        #1A1A2E 40%,      /* Your existing dark-bg color (var(--dark-bg)) */
+        #111122 100%     /* Deeper indigo/black at the edges for depth */
+    );
+    
     color: var(--text-light); 
     font-family: 'Arial', sans-serif;
     min-height: 100vh;
@@ -60,6 +69,8 @@
     font-size: 3em;
     color: #ffffff;
     margin-bottom: 5px;
+    /* --- NEW: Subtle glow for main header --- */
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.4); 
 }
 
 .report-subtitle {
@@ -85,7 +96,7 @@
 
 /* --- ELEVATION & CARD BASE STYLES --- */
 .stat-card, .visual-card, .plan-card, .swot-item {
-    background-color: var(--card-bg); 
+    background-color: var(--card-bg); /* Uses new slightly darker card color */
     padding: 25px;
     border-radius: 12px;
     /* Base Shadow for elevated look */
@@ -95,12 +106,12 @@
 
 .stat-card:hover, .visual-card:hover, .plan-card:hover, .swot-item:hover {
     transform: translateY(-7px); /* Higher lift on hover */
-    /* Hover Shadow - generic blue/cyan */
-    box-shadow: 0 15px 30px rgba(0, 188, 212, 0.35), 0 6px 15px rgba(0, 0, 0, 0.6);
+    /* Hover Shadow - generic blue/cyan (Uses new cyan color code) */
+    box-shadow: 0 15px 30px rgba(0, 212, 255, 0.35), 0 6px 15px rgba(0, 0, 0, 0.6); 
 }
 
 .stat-card h3, .visual-card h3, .plan-card h3 {
-    color: var(--accent-cyan); 
+    color: var(--accent-cyan); /* Uses new cyan */
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 1.5em;
@@ -108,13 +119,14 @@
 
 /* Vibrant Card Style (for Sliders and AI Feedback) */
 .vibrant-card {
-    background: linear-gradient(145deg, #2c2c44, #370522); /* Darker Pink-infused Gradient */
-    /* Initial subtle pink glow */
-    box-shadow: 0 0 10px rgba(255, 65, 108, 0.3), 0 6px 15px rgba(0, 0, 0, 0.5);
+    /* UPDATED: Better magenta-infused Gradient */
+    background: linear-gradient(145deg, var(--card-bg), #3A0F2B); 
+    /* Initial subtle pink glow (using new magenta color code) */
+    box-shadow: 0 0 10px rgba(233, 30, 99, 0.3), 0 6px 15px rgba(0, 0, 0, 0.5); 
 }
 .vibrant-card:hover {
-    /* Stronger pink glow on hover */
-    box-shadow: 0 0 30px rgba(255, 65, 108, 0.6), 0 15px 30px rgba(0, 0, 0, 0.6);
+    /* Stronger pink glow on hover (using new magenta color code) */
+    box-shadow: 0 0 30px rgba(233, 30, 99, 0.6), 0 15px 30px rgba(0, 0, 0, 0.6); 
 }
 
 /* --- PITCH SUMMARY (Dynamic) --- */
@@ -125,12 +137,13 @@
     padding: 25px 35px; 
     background-color: #351f3d; /* Unique darker purple tone for pitch */
     border-radius: 12px;
-    border-left: 5px solid var(--accent-pink); /* Accent line */
+    border-left: 5px solid var(--accent-pink); /* Uses new magenta */
     font-size: 1.4em; 
     font-style: italic;
     color: #ffffff;
     font-weight: 500;
-    box-shadow: 0 8px 20px rgba(255, 65, 108, 0.4); 
+    /* UPDATED: Shadow uses new magenta color code */
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.4); 
 }
 
 /* Hover Pulse Effect */
@@ -165,8 +178,9 @@
     height: 180px;
     border-radius: 50%;
     background: radial-gradient(circle at 70% 30%, #440a28, var(--dark-bg)); 
-    border: 10px solid var(--accent-cyan); 
-    box-shadow: 0 0 30px rgba(255, 65, 108, 0.5); 
+    border: 10px solid var(--accent-cyan); /* Uses new cyan */
+    /* UPDATED: Uses new magenta color code for shadow */
+    box-shadow: 0 0 30px rgba(233, 30, 99, 0.5); 
     transition: transform 0.3s;
     
     /* FIX: Ensure content is vertically and horizontally centered */
@@ -207,7 +221,7 @@
 .rating-label {
     font-size: 1.5em;
     font-weight: 600;
-    color: var(--accent-cyan); 
+    color: var(--accent-cyan); /* Uses new cyan */
 }
 
 /* 1. & 8. Slider Score Cards */
@@ -231,10 +245,11 @@
 }
 
 .slider-fill {
-    height: 100%;
+    /* Uses new cyan and magenta */
     background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink)); 
     border-radius: 6px;
     transition: width 0.8s ease-out; 
+    height: 100%; /* FIX: Moved height property back to slider-fill */
 }
 
 .slider-thumb {
@@ -270,7 +285,7 @@
     justify-content: center;
     border-radius: 8px;
     margin-bottom: 15px;
-    color: var(--accent-cyan);
+    color: var(--accent-cyan); /* Uses new cyan */
     font-weight: 600;
     font-size: 1.1em;
     
@@ -281,7 +296,7 @@
 }
 
 .visual-card:hover .chart-placeholder {
-    border: 2px solid var(--accent-cyan);
+    border: 2px solid var(--accent-cyan); /* Uses new cyan */
 }
 
 
@@ -300,7 +315,7 @@
 
 .swot-title {
     grid-column: 1 / -1;
-    color: var(--accent-cyan);
+    color: var(--accent-cyan); /* Uses new cyan */
     text-align: center;
     margin-bottom: 20px;
     font-size: 2em;
@@ -337,11 +352,14 @@
 
 /* 6. AI Feedback Summary */
 .ai-feedback-section h2 {
-    color: var(--accent-cyan);
+    color: var(--accent-cyan); /* Uses new cyan */
     font-size: 1.8em;
     margin-bottom: 15px;
 }
-
+.ai-feedback-section{
+    padding :0.7rem;
+    border-radius: 1%;
+}
 /* --- FINANCIAL SECTION --- */
 .financial-section {
     display: flex;
@@ -361,19 +379,19 @@
 }
 
 .estimated-cost-tag {
+    color: var(--accent-pink); /* Uses new magenta */
     font-size: 1.1em;
-    color: var(--accent-pink);
     font-weight: 700;
 }
 .chart-container {
     width: 100%;
     max-width: 100%;
     overflow: hidden;
-  }
-  .recharts-wrapper {
+}
+.recharts-wrapper {
     width: 100% !important;
     max-width: 100% !important;
-  }
+}
 
 /* --- RESPONSIVENESS --- */
 @media (max-width: 900px) {
@@ -403,4 +421,26 @@
         font-size: 1.1em;
         margin-bottom: 30px;
     }
+}
+.go-home-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 30px 0; /* top & bottom spacing from report content */
+}
+
+.go-home-btn {
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #6b46c1, #805ad5); /* purple-dark gradient */
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.go-home-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }

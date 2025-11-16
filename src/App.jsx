@@ -18,6 +18,7 @@ import monetisationImg from "./assets/monetisation.jpg";
 import monetisation1Img from "./assets/monetisation11.jpg";
 import feature7 from "./assets/feature7.jpg";
 import fundingImg from "./assets/funding.jpg";
+import { useState } from "react";
 /* --------------------------------------------- */
 /* ANIMATION COMPONENTS */
 /* --------------------------------------------- */
@@ -92,8 +93,18 @@ export default function App() {
 /* HOME PAGE COMPONENT */
 /* ------------------------------- */
 function HomePage() {
+  const [idea, setIdea] = useState("");
   const navigate = useNavigate();
+  const handleSubmit = async () => {
+    const res = await fetch("http://localhost:5000/api/analyze", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({"idea":idea})
+    });
 
+    const api = await res.json();
+    navigate("/analysis", { state: {api }, });
+  };
   return (
     <>
       {/* ---------------------------------- */}
@@ -445,10 +456,10 @@ transform: "translateX(-40px)"
 
               <div className="form-group">
                 <label>Detailed Description *</label>
-                <textarea required placeholder="Describe your solution..."></textarea>
+                <textarea required placeholder="Describe your solution..." onChange={(e) => setIdea(e.target.value)}></textarea>
               </div>
 
-              <button type="submit" className="form-submit-button">
+              <button type="submit" onClick={handleSubmit} className="form-submit-button">
                 Get My Report
               </button>
             </form>
